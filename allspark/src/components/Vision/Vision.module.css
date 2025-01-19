@@ -1,0 +1,93 @@
+.visionContainer {
+    /*设置最外层容器的样式*/
+    width: 95%;
+    margin: 0 2.5%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5%;
+}
+
+.upImg, .text1, .text2, .downImg {
+    height: 160px;
+    margin-top: 25px;
+/*    设置四个盒子的高度中间的距离*/
+}
+
+.upImg, .downImg {
+    /*设置盒子的宽度随着窗口拜变化*/
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.text1, .text2 {
+    /*设置文字盒子的宽度*/
+    width: 45%;
+}
+
+.visionTitle, .missionTitle {
+    /*设置标题的样式*/
+    margin: 0;
+    color: #317FEF;
+    font-size: 15px;
+    font-weight: bolder;
+    margin-top: 14px;
+}
+
+.missionTitle {
+    margin-top: 8px;
+}
+
+.text1 h2, .text2 h2 {
+    margin: 0;
+    font-size: 20px;
+    margin-top: 5px;
+    white-space: pre-line; /*这个是设置自动检测文本中的换行符并且换行*/
+    line-height: 1.5;
+}
+
+.text2 {
+    text-align: right;
+}
+
+.desc1, .desc2 {
+    font-size: 14px;
+}
+
+/*根据窗口大小自动调整文字大小和元素大小*/
+@media (min-width: 650px) {
+    .upImg, .text1, .text2, .downImg {
+        height: 280px;
+
+    }
+
+    .visionTitle, .missionTitle {
+        font-size: 25px;
+        font-weight: bolder;
+        margin-top: 24px;
+    }
+
+    .missionTitle {
+        margin-top: 18px;
+    }
+
+    .text1 h2, .text2 h2 {
+        margin: 0;
+        font-size: 30px;
+        margin-top: 15px;
+        white-space: pre-line; /*这个是设置自动检测文本中的换行符并且换行*/
+        line-height: 1.5;
+    }
+
+    .text2 {
+        text-align: right;
+    }
+
+    .desc1, .desc2 {
+        font-size: 24px;
+    }
+}

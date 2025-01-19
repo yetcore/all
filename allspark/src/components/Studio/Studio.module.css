@@ -1,0 +1,145 @@
+.groupSection {
+    /*设置和上一个模块的距离*/
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.groupTitle {
+    /*设置标题和两边灰线的位置，以及标题和下方小组划分的间隔*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.groupTitle h1 {
+    /*设置标题文字样式*/
+    z-index: 1;
+    font-size: 20px;
+    color: #000;
+    margin: 0 10px; /* 控制标题与线条之间的固定间距 */
+}
+
+.groupTitle span {
+    /*设置文字下方蓝色线*/
+    width: 145px;
+    height: 6px;
+    background-color: #c9dbf6;
+    position: absolute;
+    bottom: 5px;
+}
+
+.groupTitle::before,
+.groupTitle::after {
+    /*设置标题两边灰线*/
+    content: '';
+    display: block;
+    height: 1px;
+    width: 25px;
+    background-color: #ccc;
+}
+
+
+.groupContainer {
+    /*设置小组划分的三个元素弹性布局*/
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.groupCard {
+    /*设置小组划分的三个元素的大小，底图，蒙版*/
+    height: 230px;
+    width: 30%;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    background-position: center;
+}
+
+/*.groupCard::before {*/
+/*    !*通过伪元素来设置蒙版*!*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    z-index: 1;*/
+/*}*/
+
+.groupCard_0::before {
+    /*因为每一个蒙版颜色都不同，所以需要单独设置样式*/
+    background-color: rgba(62, 132, 232, 0.8); /* 淡蓝色蒙层 */
+}
+
+.groupCard_1::before {
+    background-color: rgba(71, 163, 234, 0.8); /* 淡蓝色蒙层 */
+}
+
+.groupCard_2::before {
+    background-color: rgba(61, 106, 225, 0.9); /* 淡蓝色蒙层 */
+}
+
+
+/*下面是设置文字样式*/
+.cardContent {
+    padding: 10px;
+}
+
+.cardContent h2 {
+
+    position: relative;
+    z-index: 2;
+    /*设置文字层级使其显示在蒙版上面*/
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    text-align: center;
+
+}
+
+.cardContent h3 {
+
+    position: relative;
+    z-index: 2;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.cardContent p {
+
+    position: relative;
+    z-index: 2;
+    font-size: 13px;
+    color: #FFFFFF;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/*根据窗口大小调整文字大小*/
+@media (min-width: 1000px) {
+
+    .cardContent h2 {
+        margin: 0;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .cardContent h3 {
+        margin: 0;
+        font-size: 26px;
+        margin-bottom: 5px;
+    }
+
+    .cardContent p {
+        margin: 0;
+        font-size: 23px;
+    }
+}
+
