@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import "./direction.css";
 import axios from "axios";
+import styles from './index.module.css'
+
 const baisisUrl = "http://aru244.natappfree.cc/";
 // 获取图片
 function useImages() {
@@ -46,7 +48,7 @@ function useText() {
   return { text, textError };
 }
 
-export default function Direction(props,ref) {
+export default forwardRef( function Direction(props,ref) {
   const [activeIndex, setActiveIndex] = useState(0);
   const { images, imageErrors } = useImages();
   const { text, textError } = useText();
@@ -62,7 +64,10 @@ export default function Direction(props,ref) {
   return (
     <div ref = {ref}>
       {/* 这里是标题！！！！！！！！！！   需要加样式 */}
-      <div>工作室方向</div>
+      <div className={styles.titleSection}>
+        <h1>工作室方向</h1>
+        <span></span>
+        </div>
       <div className="image-row">
         {/* 错误展示 */}
         {imageErrors.length > 0 && (
@@ -106,7 +111,7 @@ export default function Direction(props,ref) {
 
   );
 }
-
+)
 // 已废弃代码
 // const [images, setImages] = useState([]);
 // const [text, setText] = useState({});

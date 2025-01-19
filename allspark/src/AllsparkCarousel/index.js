@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -7,13 +7,13 @@ import "./carousel.css";
 import { Pagination } from "swiper/modules";
 import ImageOverlay from "./ImageOverlay";
 
-export default function MyCarousel({ onClickBox }) {
+export default function MyCarousel({onClickBox}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const handleSlideChange = (swiper) => {
     setCurrentIndex(swiper.activeIndex);
   };
   return (
-    <>
+    <div>
       <div className="carousel-container">
         <Swiper
           onSlideChange={handleSlideChange}
@@ -56,6 +56,6 @@ export default function MyCarousel({ onClickBox }) {
           <div className="joinIcon"></div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

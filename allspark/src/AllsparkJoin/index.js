@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { Form, Input, Button, Radio, Typography, Space } from 'antd';
 import styles from './Common.module.scss'
 import postData from '../hooks/join';
 
 const { Title, Paragraph } = Typography
 
-const AllsparkJoin = () => {
+const AllsparkJoin = forwardRef((props, ref) => {
 
     const [form] = Form.useForm();
     const [grade, setGrade] = useState('大一');
@@ -30,7 +30,7 @@ const AllsparkJoin = () => {
     
   }
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} ref={ref}>
             <div className={styles.bringTitle}>
               <h1>加入我们</h1>
               <span></span>
@@ -108,7 +108,7 @@ const AllsparkJoin = () => {
             </div>
         </div>
     )}
-
+  )
 
 export default AllsparkJoin
 

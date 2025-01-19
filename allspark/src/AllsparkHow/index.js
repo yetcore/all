@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import { Tabs, Card, Spin } from 'antd';
 import styles from './Common.module.scss'
 import axios from 'axios';
 
-const AllsparkHow = () => {
+const AllsparkHow = forwardRef((props, ref) => {
   const [dataImg, setDataImg] = useState(null)
   const [dataStr, setDataStr] = useState(null)
   const [imgLoading, setimgLoading] = useState(true)
@@ -128,7 +128,7 @@ const AllsparkHow = () => {
   </div>
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} ref={ref}>
       <div className={styles.bringTitle}>
         <h1>如何加入我们</h1>
         <span></span>
@@ -144,6 +144,7 @@ const AllsparkHow = () => {
         )}/>
     </div>
   );
-};
+});
+
 
 export default AllsparkHow;

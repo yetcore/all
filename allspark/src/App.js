@@ -37,8 +37,9 @@ function App() {
         <AllsparkHow  ref={sectionRefs.joinus}/>
         
         <div ref={joinRef}>
-        <AllsparkJoin />
+        <AllsparkJoin ref={sectionRefs.register}/>
         </div>
+      
 
       </div>
 

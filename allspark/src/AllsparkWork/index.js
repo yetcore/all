@@ -1,9 +1,9 @@
-import React, { useEffect, useRef }  from 'react'
+import React, { forwardRef, useEffect, useRef }  from 'react'
 import styles from './Common.module.scss'
 
-const AllSparWork = () => {
+const AllSparWork = forwardRef((props, ref) => {
    
-    return (<div className={styles.wrapper}>
+    return (<div className={styles.wrapper} ref={ref}>
         <div className={styles.bringTitle}>
             <h1>工作室就业</h1>
             <span></span>
@@ -12,5 +12,5 @@ const AllSparWork = () => {
       
     </div>)
 }
-
+)
 export default AllSparWork
