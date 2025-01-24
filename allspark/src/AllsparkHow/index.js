@@ -4,22 +4,26 @@ import styles from './Common.module.scss'
 import axios from 'axios';
 
 const AllsparkHow = forwardRef((props, ref) => {
-  const [dataImg, setDataImg] = useState(null)
+  const [dataSpringImg, setDataSpringImg] = useState(null)
+  const [dataAutumnImg, setDataAutumnImg] = useState(null)
+  const [dataChallengeImg, setDataChallengeImg] = useState(null)
   const [dataStr, setDataStr] = useState(null)
-  const [imgLoading, setimgLoading] = useState(true)
+  const [imgSpringLoading, setimgSpringLoading] = useState(true)
+  const [imgAutumnLoading, setimgAutumnLoading] = useState(true)
+  const [imgChallengeLoading, setimgChallengeLoading] = useState(true)
   const [strLoading, setstrLoading] = useState(true)
 
   useEffect(() => {
     const ajax = async() => {
       try {
-        const response1 = await axios.get('http://aru244.natappfree.cc/api/json/join.json',{
+        const response1 = await axios.get('http://101.200.218.130:8721/api/json/join.json',{
           params: {
               data: 'join.json'  
             }
       })
 
       if (response1 && response1.data) {
-        setDataStr(JSON.parse(response1.data.data)); // 设置字符串数据
+        setDataStr(JSON.parse(response1.data.data)); 
         setstrLoading(false)
       } else {
         console.error('响应1无效：', response1);
@@ -27,17 +31,41 @@ const AllsparkHow = forwardRef((props, ref) => {
         
   
   
-      const response2 = await axios.get('http://aru244.natappfree.cc/api/img/join.png',{
+      const spring = await axios.get('http://101.200.218.130:8721/api/img/spring.png',{
         params: {
-            data: 'join.png'  
+            data: 'spring.png'  
           }
     })
+  
+    const autumn = await axios.get('http://101.200.218.130:8721/api/img/autumn.png',{
+      params: {
+          data: 'autumn.png'  
+        }
+  })
 
-      if (response2 && response2.data) {
-        setDataImg(response2.data.data); // 设置图片数据
-        setimgLoading(false)
-      } else {
-        console.error('响应2无效：', response2);
+  const challenge = await axios.get('http://101.200.218.130:8721/api/img/challenge.png',{
+    params: {
+        data: 'challenge.png'  
+      }
+})
+
+      if(spring && spring.data) {
+        setDataSpringImg(spring.data.data)
+        setimgSpringLoading(false)
+      }else {
+        console.error('springImg无图片', spring);
+      } 
+      if(autumn && autumn.data) {
+        setDataAutumnImg(autumn.data.data)
+        setimgAutumnLoading(false)
+      }else {
+        console.error('antumnImg无图片', autumn);
+      } 
+      if(challenge && challenge.data) {
+        setDataChallengeImg(challenge.data.data)
+        setimgChallengeLoading(false)
+      }else {
+        console.error('challengeImg无图片', challenge);
       } 
     }
       catch(error){
@@ -52,7 +80,7 @@ const AllsparkHow = forwardRef((props, ref) => {
 
   
   const CustomTabBar = (props) => {
-    const { DefaultTabBar } = props; // 解构出 DefaultTabBar
+    const { DefaultTabBar } = props; 
     return (
       <div className={styles['tab-head']}>
         <DefaultTabBar {...props} />
@@ -67,7 +95,7 @@ const AllsparkHow = forwardRef((props, ref) => {
         <Card className={styles.content}>
           <div className={styles.card}>
               <img 
-                 src={!imgLoading && dataImg}
+                 src={!imgAutumnLoading && dataAutumnImg }
                 alt="秋季纳新" 
                 className={styles.img}
               />
@@ -88,7 +116,7 @@ const AllsparkHow = forwardRef((props, ref) => {
         <Card className={styles.content}>
           <div className={styles.card}>
               <img 
-                src="/1.2.jpg" 
+                src={!imgSpringLoading && dataSpringImg }
                 alt="春季纳新" 
                 className={styles.img}
               />
@@ -108,7 +136,7 @@ const AllsparkHow = forwardRef((props, ref) => {
         <Card className={styles.content}>
           <div className={styles.card}>
               <img 
-                src="/1.2.jpg" 
+                src={!imgChallengeLoading && dataChallengeImg }
                 alt="日常霸面" 
                 className={styles.img}
               />
@@ -123,7 +151,7 @@ const AllsparkHow = forwardRef((props, ref) => {
     },
   ];
   
-  if(!dataStr) return <div>
+  if(!dataStr) return <div className={styles.loading}>
     <Spin />
   </div>
 

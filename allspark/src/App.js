@@ -18,14 +18,14 @@ function App() {
   const scrollToJoin = () => {
     joinRef.current.scrollIntoView({ behavior: "smooth" });
   };
-  const sectionRefs = useContext(ScrollContext)//获取创建的Ref
+  const sectionRefs = useContext(ScrollContext)
 
   return (
       <div className={styles.content}>
-        <Navbar/>
+        <Navbar />
          <MyCarousel onClickBox={scrollToJoin} />
         
-            {/*将每一个ref都传递过去*/}
+        
             <Studio ref={sectionRefs.studio}/>
             <CscIntroduction ref={sectionRefs.cscIntroduction}/>
             <Vision />
@@ -33,6 +33,7 @@ function App() {
            
 
          <Direction ref={sectionRefs.direction}/>
+         <br />
         <AllSparWork  ref={sectionRefs.work}/>
         <AllsparkHow  ref={sectionRefs.joinus}/>
         

@@ -7,7 +7,6 @@ const Studio = forwardRef(
 
 
         const getItemClass = (index) => {
-            // 这是根据不同元素的索引返回不同的类名，从而达到动态设置类名，动态设置样式的效果
             switch (index) {
                 case 0:
                     return classes.groupCard_0;
@@ -47,17 +46,14 @@ const Studio = forwardRef(
         ];
 
         return (
-            // 要设置传递过来的ref值为该组件最外层容器的ref属性
             <div className={classes.groupSection} ref={ref}>
-                {/* 标题 */}
                 <div className={classes.groupTitle}>
                     <h1>AllSpark工作室</h1>
                     <span></span>
                 </div>
 
-                {/* 小组划分 */}
+             
                 <div className={classes.groupContainer}>
-                    {/*这里动态设置类名，因为每一个元素蒙版颜色不同，需要动态设置样式*/}
                     {groupData.map((item, index) => (
                         <div
                             key={item.id}

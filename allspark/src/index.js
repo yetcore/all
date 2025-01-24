@@ -8,7 +8,6 @@ import {ScrollProvider} from "./components/ScrollContext/ScrollContext";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
       <ScrollProvider>
-        {/*必须要这样包裹整个应用，确保ref传递到所有子组件*/}
         <App/>
     </ScrollProvider>
 );

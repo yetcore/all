@@ -2,7 +2,6 @@
     background-color: #F7F7F7FF;
     
     .bringTitle {
-        /*设置标题和两边灰线的位置，以及标题和下方小组划分的间隔*/
         display: flex;
         align-items: center;
         justify-content: center;
@@ -11,15 +10,13 @@
     }
     
     .bringTitle h1 {
-        /*设置标题文字样式*/
         z-index: 1;
         font-size: 20px;
         color: #000;
-        margin: 0 10px; /* 控制标题与线条之间的固定间距 */
+        margin: 0 10px; 
     }
     
     .bringTitle span {
-        /*设置文字下方蓝色线*/
         width: 85px;
         height: 6px;
         background-color: #c9dbf6;
@@ -29,7 +26,6 @@
     
     .bringTitle::before,
     .bringTitle::after {
-        /*设置标题两边灰线*/
         content: '';
         display: block;
         height: 1px;

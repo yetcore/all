@@ -1,44 +1,9 @@
-/* 没用 */
-/* body {
-  font-size: 16px;
-}
-
-@media (max-width: 600px) {
-  body {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 600px) and (max-width: 900px) {
-  body {
-    font-size: 16px;
-  }
-}
-
-@media (min-width: 900px) {
-  body {
-    font-size: 18px;
-  }
-} */
-
 .carousel-container {
   position: relative;
   width: 100%;
-  /* height: auto; */
   margin: auto;
   overflow: hidden;
 }
-/* @media (max-width: 768px) {
-  .carousel-container {
-    height: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .carousel-container {
-    height: 150px;
-  }
-} */
 
 .swiper {
   width: 100%;
@@ -46,7 +11,7 @@
 }
 .mySwiper {
   position: relative;
-  z-index: 0; /* 确保其他定位元素能正常显示 */
+  z-index: 0; 
 }
 
 .swiper-slide {
@@ -68,53 +33,133 @@
   position: absolute;
   background-color: white;
   right: 0;
-  /* top: 82%; */
-  top: 70%;
+
+  top: 73%;
+  width: 197px;
+  height: 103px;
   color: #317fef;
-  border-radius: 43% 0 0 43%;
-  padding: 11px 8px 15px 33px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 57px 0 0 57px;
+
   cursor: pointer;
   transition: transform 0.5s ease;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
-.join-module.hide {
-  transform: translateX(150%);
-  /* transform: translate(150%, -50%); */
-}
-/* .join-module.show {
-  transform: translateY(-50%);
-} */
 
+.join-module.hide {
+  transform: translate(150%, -50%);
+}
+.join-module.show {
+  transform: translateY(-50%);
+}
+.join-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1px 0 2px 13px;
+}
 .join-content p {
-  font-size: 2vw;
+  width: 96px;
+  height: 33px;
+  font-family: ".PingFang SC", PingFang SC;
   font-weight: 600;
-  margin: 0;
+  font-size: 24px;
+  color: #317fef;
+  /* line-height: 33px; */
+  text-align: center;
+  font-style: normal;
+  text-transform: none;
 }
 .join-content span {
-  font-size: 2vw;
+  width: 94px;
+  height: 24px;
+  font-family: ".PingFang SC", PingFang SC;
   font-weight: 600;
+  font-size: 17px;
+  color: #317fef;
+  letter-spacing: normal;
+  text-align: center;
+  font-style: normal;
+  text-transform: none;
 }
 
 .joinIcon {
   position: absolute;
-  bottom: -16%;
-  left: 68%;
+  bottom: -14%;
+  left: 60%;
   transform: translateX(-50%);
-  width: 22px;
-  height: 22px;
+  width: 32px;
+  height: 32px;
   background: rgb(11, 11, 203);
-  background: url("../assets/imgs/jiantou.png") no-repeat;
+  background: url("../assets/imgs/arrow.png") no-repeat;
   background-position: 42% 51%;
   border-radius: 50%;
 }
-/* .joinIcon::after {
-  content: "\2713";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 14px;
-  color: #ff6f61;
-} */
+@media (max-width: 750px) {
+  .carousel-container .join-module {
+    width: 150px;
+    height: 80px;
+  }
+
+  .join-content p {
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  .join-content span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .joinIcon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 510px) {
+  .carousel-container .join-module {
+    width: 114px;
+    height: 62px;
+  }
+
+  .join-content p {
+    font-size: 16px;
+    line-height: 37px;
+    width: 96px;
+    height: 33px;
+  }
+
+  .join-content span {
+    font-size: 12px;
+    line-height: 12px;
+  }
+  .joinIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (max-width: 400px) {
+  .carousel-container .join-module {
+    width: 96px;
+    height: 54px;
+  }
+
+  .join-content p {
+    font-size: 14px;
+    line-height: 34px;
+    width: 69px;
+    height: 28px;
+  }
+
+  .join-content span {
+    font-size: 10px;
+    line-height: 13px;
+  }
+  .joinIcon {
+    width: 20px;
+    height: 20px;
+  }
+}

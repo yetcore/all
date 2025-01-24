@@ -3,7 +3,7 @@ import "./direction.css";
 import axios from "axios";
 import styles from './index.module.css'
 
-const baisisUrl = "http://aru244.natappfree.cc/";
+const baisisUrl = "http://101.200.218.130:8721";
 // 获取图片
 function useImages() {
   const [images, setImages] = useState([]);
@@ -30,7 +30,6 @@ function useImages() {
   }, []);
   return { images, imageErrors };
 }
-// 获取文字
 function useText() {
   const [text, setText] = useState({});
   const [textError, setTextError] = useState("");
@@ -63,13 +62,11 @@ export default forwardRef( function Direction(props,ref) {
   ];
   return (
     <div ref = {ref}>
-      {/* 这里是标题！！！！！！！！！！   需要加样式 */}
       <div className={styles.titleSection}>
         <h1>工作室方向</h1>
         <span></span>
         </div>
       <div className="image-row">
-        {/* 错误展示 */}
         {imageErrors.length > 0 && (
           <div className="error-messages">
             {imageErrors.map((error, index) => (
@@ -84,7 +81,6 @@ export default forwardRef( function Direction(props,ref) {
             <p style={{ color: "red" }}>{textError}</p>
           </div>
         )}
-        {/* 内容展示 */}
         {images.map((image, index) => (
           <div
             key={index}
@@ -112,43 +108,3 @@ export default forwardRef( function Direction(props,ref) {
   );
 }
 )
-// 已废弃代码
-// const [images, setImages] = useState([]);
-// const [text, setText] = useState({});
-
-// const fetchImage = async (imageName) => {
-//   try {
-//     const res = await axios.get(baisisUrl + `/api/img/${imageName}`);
-//     console.log(res.data);
-//     const imgUrl = res.data.data;
-//     // const imgUrl = URL.createObjectURL(res.data);
-//     return imgUrl;
-//   } catch (error) {
-//     console.error("Error fetching image:", error);
-//   }
-// };
-// const fetchText = async (fileName) => {
-//   try {
-//     const res = await axios.get(baisisUrl + `/api/json/${fileName}`);
-//     const text = JSON.parse(res.data.data); // 解析 JSON 字符串
-//     console.log(text);
-//     return text;
-//   } catch (error) {
-//     console.error("Error fetching image:", error);
-//   }
-// };
-// useEffect(() => {
-//   const loadResource = async () => {
-
-//     //并行加载
-//     const [largeImage1, largeImage2, largeImage3, Text] = await Promise.allSettled([
-//       fetchImage("backend-l.png"),
-//       fetchImage("frontend-l.png"),
-//       fetchImage("product-l.png"),
-//       fetchText("directions.json"),
-//     ]);
-//     setImages([largeImage1, largeImage2, largeImage3]);
-//     setText(Text);
-//   };
-//   loadResource();
-// }, []);

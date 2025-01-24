@@ -1,5 +1,4 @@
 .navbar {
-    /* 这是导航栏的主体样式*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,7 +13,6 @@
 
 
 .iconLeftBox{
-    /*下面这四个是设置左右图标的位置和大小*/
     height: 45px;
     width: 180px;
     margin-left: 25px;
@@ -32,10 +30,11 @@
     height: 100%;
     width: 100%;
 }
-
+::-webkit-scrollbar {
+    display: none;
+}
 
 .dropdown {
-    /*这是设置下拉框的位置，样式*/
     position: absolute;
     height: 0;
     top: 100%;
@@ -53,22 +52,20 @@
     opacity: 1;
 }
 .dropdownItem {
-    /*这是设置下拉框里面元素的样式*/
     height: 70px;
     border-bottom: 1px solid #e6e6e6;
     color: #000000;
     line-height: 70px;
     padding-left: 25px;
     font-size: 17px;
+    cursor: pointer;
 }
 .dropdownItem:last-child {
-    /*设置下拉框最后一个元素没有下边框，也就是那条分割线*/
     border-bottom: none;
 }
 
 
 .overlay {
-    /*设置遮罩层样式*/
     position: fixed;
     top: 100px;
     left: 0;

@@ -1,5 +1,4 @@
 .CscIntroductionContainer {
-    /*设置和上一个模块的距离*/
     margin-top: 30px;
     text-align: center;
     margin-left: 4%;
@@ -8,7 +7,6 @@
 
 
 .titleSection {
-    /*设置标题和两边灰线的位置*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,16 +14,14 @@
 }
 
 .titleSection h1 {
-    /*设置标题文字样式*/
     z-index: 1;
     font-size: 20px;
     color: #000;
-    margin: 0 10px; /* 控制标题与线条之间的固定间距 */
+    margin: 0 10px;
 }
 
 .titleSection::before,
 .titleSection::after {
-    /*设置标题两边灰线*/
     content: '';
     display: block;
     height: 1px;
@@ -34,7 +30,6 @@
 }
 
 .titleSection span {
-    /*设置文字下方蓝色线*/
     width: 280px;
     height: 6px;
     background-color: #c9dbf6;
@@ -43,7 +38,6 @@
 }
 
 .titleSection2 h2 {
-    /*设置副标题文字样式*/
     margin: 0;
     font-size: 13px;
     font-family: 'PingFang SC-Light', 'Arial', sans-serif;
@@ -52,18 +46,16 @@
 }
 
 .introText p {
-    /*设置中间文字介绍*/
-    margin: 20px 10%;
-    white-space: pre-line;/*这个是设置自动检测文本中的换行符并且换行*/
+    margin: 20px 5%;
+    white-space: pre-line;
     font-size: 15px;
     line-height: 1.5;
 }
 
 .bottomSection {
-    /*设置底部盒子总体样式和图片大小*/
     position: relative;
     margin: 0 auto;
-    width: 95%;
+    width: 100%;
     height: 150px;
     background-size: cover;
     background-position: center;
@@ -75,7 +67,6 @@
 
 
 .bottomSection::before {
-    /*通过伪元素来设置蒙版*/
     content: "";
     position: absolute;
     top: 0;
@@ -86,7 +77,7 @@
     background-color: rgba(0, 0, 0, 0.3); /* 黑色蒙层 */
 }
 
-/*下面都是设置文字的样式*/
+
 .infoText {
     width: 100%;
     position: relative;
@@ -107,7 +98,7 @@
     width: 65px;
     height: 0.5px;
     background-color: #D6D6D6;
-    transform: rotate(-70deg); /* 旋转斜线 */
+    transform: rotate(-70deg); 
 }
 
 .text1::before {
@@ -128,8 +119,7 @@
     font-size: 13px;
     font-weight: lighter;
 }
-
-/*当窗口增大到一定程度，文字增大，图片也变大*/
+ 
 @media (min-width: 750px) {
     .bottomSection {
         height: 350px;

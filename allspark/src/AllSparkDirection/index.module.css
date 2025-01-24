@@ -1,22 +1,20 @@
 .titleSection {
-    /*设置标题和两边灰线的位置*/
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    margin-bottom: 2%;
 }
 
 .titleSection h1 {
-    /*设置标题文字样式*/
     z-index: 1;
     font-size: 20px;
     color: #000;
-    margin: 0 10px; /* 控制标题与线条之间的固定间距 */
+    margin: 0 10px; 
 }
 
 .titleSection::before,
 .titleSection::after {
-    /*设置标题两边灰线*/
     content: '';
     display: block;
     height: 1px;
@@ -25,7 +23,6 @@
 }
 
 .titleSection span {
-    /*设置文字下方蓝色线*/
     width: 100px;
     height: 6px;
     background-color: #c9dbf6;

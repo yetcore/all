@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from 'react';
-import { Form, Input, Button, Radio, Typography, Space } from 'antd';
+import { Form, Input, Button, Radio, Typography, Space, message, notification } from 'antd';
 import styles from './Common.module.scss'
 import postData from '../hooks/join';
 
@@ -20,15 +20,15 @@ const AllsparkJoin = forwardRef((props, ref) => {
     const handleInputChange = (e) => {
       let value = e.target.value;
       if (value.length > 100) {
-      value = value.slice(0, 100); // 限制输入最多100字符
+      value = value.slice(0, 100); 
     }
     setProgress(value);
   };
     
   const handleupdata = () => {
-    postData(grade,progress,number,nickname,direction);
-    
+   postData(grade,progress,number,nickname,direction);
   }
+  
     return (
         <div className={styles.wrapper} ref={ref}>
             <div className={styles.bringTitle}>
@@ -90,16 +90,18 @@ const AllsparkJoin = forwardRef((props, ref) => {
                 {grade === '大三' && <Paragraph>要求：<br />有项目开发能力，或有互联网公司实习经验</Paragraph>}
                 {grade === '准大一' && <Paragraph>要求：<br />已拿到西邮录取通知书且在9月报名之前，有学习编程知识的意向</Paragraph>}
                 
-                <Form.Item label="学习进展" name="progress"  help={`${progress.length}/100`}>
+                <Form.Item label="学习进展" name="progress"  help={`${progress.length}/100`} rules={[ { required: true, message: '请输入你的学习进展！' }, ]}>
                   <Input.TextArea placeholder="请用100字以内，描述你对编程的学习程度" 
                   rows={4}  
                   onChange={handleInputChange}
                   value={progress}
-                  maxLength={100}/>
+                  maxLength={100}
+                />
                 </Form.Item>
                 
+                {<Paragraph>报名成功后自动跳转到QQ群</Paragraph>}
 
-                <Form.Item>
+                <Form.Item  >
                   <Button type="primary" htmlType="submit" block onClick={handleupdata}>
                     立即报名
                   </Button>

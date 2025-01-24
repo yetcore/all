@@ -1,16 +1,15 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
-// 封装的钩子函数，根据 type 参数执行不同的请求逻辑
+
 const useGetData = (type, name) => {
-    const [data, setData] = useState(null); // 存储响应数据
+    const [data, setData] = useState(null); 
     useEffect(() => {
-        if (!name) return; // 如果没有提供 name 参数，直接返回
+        if (!name) return; 
         const getData = async () => {
-            const baseurl='http://aru244.natappfree.cc'//定义基础路径在这里方便统一修改
+            const baseurl='http://101.200.218.130:8721'
             try {
                 let response;
-                // 根据 type 选择不同的请求逻辑
                 if (type === 'image') {
                     response = await axios.get(`${baseurl}/api/img/${name}`, {
                         headers: {
@@ -18,28 +17,28 @@ const useGetData = (type, name) => {
                         },
                         timeout: 3000,
                     });
-                    setData(response.data.data)//储存图片路径
+                    setData(response.data.data)
                 } else if (type === 'text') {
                     response = await axios.get(`${baseurl}/api/json/${name}`, {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
-                        timeout: 3000,//设置三秒超时
+                        timeout: 3000,
                     });
-                    setData(JSON.parse(response.data.data))//将返回的json数据转成对象存储
+                    setData(JSON.parse(response.data.data))
                 } else {
                     throw new Error('未知的请求类型');
                 }
 
             } catch (err) {
-                console.log(err.message || '请求失败，请检查网络或接口')//处理错误
+                console.log(err.message || '请求失败，请检查网络或接口')
             } finally {
-                console.log("好难写啊，小林学长能不能救救我  o(╥﹏╥)o  ")
+                console.log("好难写啊，小林学长能不能救救我  o(╥﹏╥)o  ,当你看到这里恭喜你发现了彩蛋，如果你是大一新生并对自己的前/后端能力有一定的自信，请加Q：3509714363霸面加分")
             }
         };
 
         getData();
-    }, [type, name]); // 依赖项：type 或 name 变化时重新请求
+    }, [type, name]); 
 
 
     return data

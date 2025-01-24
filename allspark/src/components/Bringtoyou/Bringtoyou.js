@@ -5,7 +5,6 @@ import useGetData from "../hooks/useGetData";
 
 const Bringtoyou = forwardRef((props, ref) => {
 
-    // 发送请求获取数据，并且重构数据到数组里面使用map渲染
     const contents = useGetData('text', 'benefits.json')
     const bringData = [
         {
@@ -49,20 +48,16 @@ const Bringtoyou = forwardRef((props, ref) => {
             <div className={classes.bringItemList}>
                 {bringData.map((item, index) => (
                     <div key={index} className={classes.bringItem}>
-                        {/* 替换为实际图片 */}
                         <div className={classes.imageBox}>
                             <img src={item.imageUrl}/>
                         </div>
                         <div className={classes.textBox}>
                             <h2 className={classes.textTitle}>{item.title}</h2>
-                            {/*<p className={classes.text}>{item.content}</p>*/}
                             <p className={classes.text}>
                                 {item.content?.split(/(\*[^*]+\*)/g).map((part, index) => (
-                                    // 如果部分被*包围，则给它加上蓝色样式
                                     part.startsWith('*') && part.endsWith('*') ? (
                                         <span key={index} style={{color: '#3682ef'}}>
                                                 {part.slice(1, -1)}
-                                                {/* 去掉前后的* */}
                                         </span>
                                     ) : (
                                         part

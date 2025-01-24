@@ -10,18 +10,15 @@ const CscIntroduction = forwardRef((props, ref) => {
 
     return (
         <div className={classes.CscIntroductionContainer} ref={ref}>
-            {/*标题*/}
             <div className={classes.titleSection}>
                 <h1>AllSpark工作室-CSC小组-简介</h1>
                 <span></span>
             </div>
 
-            {/*副标题*/}
             <div className={classes.titleSection2}>
                 <h2>BRIEF INTRODUCTION</h2>
             </div>
 
-            {/*中间的介绍*/}
             <div className={classes.introText}>
                 <p>{textdata?.text}</p>
             </div>
